@@ -1,0 +1,18 @@
+
+
+version: '3.4'
+
+services:
+  usermanagementsystem:
+    image: usermanagementsystem
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        - configuration=Debug
+    ports:
+      - 5086:5086
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    volumes:
+      - ~/.vsdbg:/remote_debugger:rw
